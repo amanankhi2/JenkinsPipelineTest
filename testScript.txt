@@ -1,0 +1,29 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'My First Build'
+                build quietPeriod: 1, job: 'BuildJob'
+            }
+        }
+        stage('Develop') {
+            steps {
+                echo 'My First Development'
+                build quietPeriod: 1, job: 'DevJob'
+            }
+        }
+        stage('Testing') {
+            steps {
+                echo 'My First Testing'
+                build quietPeriod: 1, job: 'TestJob'
+            }
+        }
+        stage('Finish') {
+            steps {
+                echo 'All Job Finished Successfully'
+            }
+        }
+    }
+}
